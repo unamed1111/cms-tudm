@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.index');
+});
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('login', function(){
+        return view('admin.login');
+    });
+    Route::get('login', 'Admin\LoginController@showLoginPage')->name('admin.show-login');
+    Route::post('login', 'Admin\LoginController@login')->name('admin.login');
 });

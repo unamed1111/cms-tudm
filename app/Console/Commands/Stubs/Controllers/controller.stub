@@ -1,0 +1,123 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use DummyNamespace\Controller;
+use App\Services\DummyModelService;
+
+class DummyClass extends Controller
+{
+    /**
+     * The interface service instance.
+     */
+    protected $service;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  DummyRepositoryInterface
+     * @return void
+     */
+    public function __construct(DummyModelService $service)
+    {
+        $this->service = $service;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $DummyVariablePlural = $this->service->getall();
+
+        return view('DummyVariablePlural.index', compact("DummyVariablePlural"));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('DummyVariablePlural.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $DummyVariable = $this->service->create($request->all());
+        if (!$DummyVariable) {
+            return back()->with('error', __('Something went wrong!'));
+        }
+
+        return redirect('DummyVariablePlural.index')->with('success', __('Create successfully!'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $DummyVariable = $this->service->get([], $id);
+
+        return view('DummyVariablePlural.show', compact('DummyVariable'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $DummyVariable = $this->service->get([], $id);
+        if (!$DummyVariable) {
+            return back()->with('error', __('Something went wrong!'));
+        }
+
+        return redirect('DummyVariablePlural.edit', compact('DummyVariable'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $DummyVariable = $this->service->update($request->all(), $id);
+        if (!$DummyVariable) {
+            return back()->with('error', __('Something went wrong!'));
+        }
+
+        return redirect('DummyVariablePlural.index')->with('success', __('Update successfully!'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $deleted = $this->service->delete($id);
+
+        return redirect()->back()->with('success', __('Delete successfully!'));
+    }
+}
