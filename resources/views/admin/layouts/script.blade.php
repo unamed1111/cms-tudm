@@ -1,15 +1,15 @@
 <!-- Jquery js-->
-<script src="{{ asset('assets/js-dark/vendors/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
 
 <!--Bootstrap.min js-->
 <script src="{{ asset('assets/plugins/bootstrap/popper.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
 <!--Jquery Sparkline js-->
-<script src="{{ asset('assets/js-dark/vendors/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendors/jquery.sparkline.min.js') }}"></script>
 
 <!-- Chart Circle js-->
-<script src="{{ asset('assets/js-dark/vendors/circle-progress.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendors/circle-progress.min.js') }}"></script>
 
 <!-- Star Rating js-->
 <script src="{{ asset('assets/plugins/rating/jquery.rating-stars.js') }}"></script>
@@ -37,7 +37,7 @@
 <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
 
 <!-- Charts js-->
-<script src="{{ asset('assets/plugins/chart/chart.bundle-dark.js') }}"></script>
+<script src="{{ asset('assets/plugins/chart/chart.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/chart/utils.js') }}"></script>
 
 <!--Time Counter js-->
@@ -49,9 +49,9 @@
 <script src="{{ asset('assets/plugins/morris/morris.js') }}"></script>
 
 <!-- Custom-charts js-->
-<script src="{{ asset('assets/js-dark/index1.js') }}"></script>
+<script src="{{ asset('assets/js/index1.js') }}"></script>
 
 <!-- Custom js-->
-<script src="{{ asset('assets/js-dark/custom.js') }}"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 
 @stack('js')

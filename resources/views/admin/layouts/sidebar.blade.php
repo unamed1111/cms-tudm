@@ -16,9 +16,13 @@
             <!-- Tabs -->
             <ul class="nav panel-tabs">
                 <li class=""><a href="#index1" class="active" data-toggle="tab"><i class="fa fa-home fs-17"></i></a></li>
-                <li><a href="#index2" data-toggle="tab"><i class="fa fa-envelope fs-17"></i></a></li>
-                <li><a href="#index3" data-toggle="tab"><i class="fa fa-user fs-17"></i></a></li>
-                <li><a href="login.html" title="logout"><i class="fa fa-power-off fs-17"></i></a></li>
+                <li><a href="#" data-toggle="tab"><i class="fa fa-envelope fs-17"></i></a></li>
+                <li><a href="#" data-toggle="tab"><i class="fa fa-user fs-17"></i></a></li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" title="logout"><i class="fa fa-power-off fs-17"></i></a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </ul>
         </div>
     </div>
