@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
-})->middleware('auth');
-// Route::group(['prefix' => 'admin'], function () { });
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+    Route::get('/', 'Admin\AdminController@dashboard')->name('dashboard');
+});
 
 Auth::routes();
